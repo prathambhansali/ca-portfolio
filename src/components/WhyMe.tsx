@@ -36,7 +36,7 @@ export default function WhyMe() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 bg-navy-light/30" ref={ref}>
+    <section className="py-12 md:py-24 bg-navy-light/30" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export default function WhyMe() {
               initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="flex gap-6 p-6 glass rounded-xl hover-lift"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 p-4 sm:p-6 glass rounded-xl hover-lift"
             >
               <div className="flex-shrink-0">
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500/30 to-gold/30 flex items-center justify-center">

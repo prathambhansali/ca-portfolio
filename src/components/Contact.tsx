@@ -41,7 +41,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24" ref={ref}>
+    <section id="contact" className="py-12 md:py-24" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -135,7 +135,7 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <form onSubmit={handleSubmit} className="glass rounded-xl p-8">
+            <form onSubmit={handleSubmit} className="glass rounded-xl p-4 sm:p-8">
               <div className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -149,7 +149,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full px-4 py-3 bg-navy border border-border rounded-lg focus:outline-none focus:border-indigo-500 transition-colors"
+                    className="w-full px-3 sm:px-4 py-3 bg-navy border border-border rounded-lg focus:outline-none focus:border-indigo-500 transition-colors"
                     placeholder="Your name"
                   />
                 </div>
@@ -166,7 +166,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full px-4 py-3 bg-navy border border-border rounded-lg focus:outline-none focus:border-indigo-500 transition-colors"
+                    className="w-full px-3 sm:px-4 py-3 bg-navy border border-border rounded-lg focus:outline-none focus:border-indigo-500 transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -182,7 +182,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, service: e.target.value })
                     }
-                    className="w-full px-4 py-3 bg-navy border border-border rounded-lg focus:outline-none focus:border-indigo-500 transition-colors"
+                    className="w-full px-3 sm:px-4 py-3 bg-navy border border-border rounded-lg focus:outline-none focus:border-indigo-500 transition-colors"
                   >
                     <option value="">Select a service</option>
                     {services.map((service) => (
@@ -205,7 +205,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    className="w-full px-4 py-3 bg-navy border border-border rounded-lg focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+                    className="w-full px-3 sm:px-4 py-3 bg-navy border border-border rounded-lg focus:outline-none focus:border-indigo-500 transition-colors resize-none"
                     placeholder="Tell me about your project..."
                   />
                 </div>

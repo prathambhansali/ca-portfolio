@@ -68,7 +68,7 @@ function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-navy-light/30 overflow-hidden">
+    <section className="py-12 md:py-24 bg-navy-light/30 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

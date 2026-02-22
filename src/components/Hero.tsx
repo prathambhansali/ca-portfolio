@@ -70,14 +70,14 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="mb-6"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-indigo-300">
+          <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass text-xs sm:text-sm text-indigo-300">
             <Sparkles className="w-4 h-4 text-gold" />
             Open to Freelance Projects
             <span className="text-gold">✦</span>
           </span>
         </motion.div>
 
-        <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 leading-tight px-2 sm:px-0">
           {words.map((word, i) => (
             <motion.span
               key={i}
@@ -104,16 +104,16 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0"
         >
           <Link
             href="#work"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover-lift"
+            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover-lift"
           >
             View My Work
             <ArrowRight className="w-5 h-5" />
           </Link>
-          <button className="inline-flex items-center gap-2 px-8 py-4 border border-border hover:border-indigo-500 text-foreground font-medium rounded-lg transition-all duration-300 hover-lift">
+          <button className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-border hover:border-indigo-500 text-foreground font-medium rounded-lg transition-all duration-300 hover-lift">
             <Download className="w-5 h-5" />
             Download Resume
           </button>
