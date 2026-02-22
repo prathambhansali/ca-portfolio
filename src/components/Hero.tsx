@@ -1,14 +1,13 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import { Download, Sparkles } from "lucide-react";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { motion } from 'framer-motion';
+import { Download, Sparkles } from 'lucide-react';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
-const headingText =
-  "I help startups & businesses make smarter financial decisions.";
+const headingText = 'I help startups & businesses make smarter financial decisions.';
 
-const words = headingText.split(" ");
+const words = headingText.split(' ');
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -17,8 +16,8 @@ export default function Hero() {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const containerVariants = {
@@ -47,34 +46,34 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      <div className="absolute inset-0 bg-gradient-radial pointer-events-none" />
+      className="bg-background relative flex min-h-screen items-center justify-center overflow-hidden">
+      <div className="bg-gradient-radial pointer-events-none absolute inset-0" />
 
       {/* Advanced Decorative Elements */}
-      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] animate-pulse-glow" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[120px] animate-float-slow" />
+      <div className="bg-primary/5 animate-pulse-glow absolute top-[-10%] right-[-10%] h-[500px] w-[500px] rounded-full blur-[120px]" />
+      <div className="bg-secondary/5 animate-float-slow absolute bottom-[-10%] left-[-10%] h-[600px] w-[600px] rounded-full blur-[120px]" />
 
       {/* Financial Motif - Modern Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-[size:4rem_4rem]" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 text-center">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="flex flex-col items-center">
           <motion.div variants={itemVariants} className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card/60 backdrop-blur-sm text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground border border-border">
-              <Sparkles className="w-3 h-3 text-secondary" />
+            <span className="bg-card/60 text-muted-foreground border-border inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[10px] font-bold tracking-[0.2em] uppercase backdrop-blur-sm">
+              <Sparkles className="text-secondary h-3 w-3" />
               Strategic Financial Leadership
             </span>
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium mb-6 leading-[1.1] tracking-tight text-foreground">
+            className="text-foreground mb-6 font-serif text-4xl leading-[1.1] font-medium tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             {words.map((word, i) => (
-              <span key={i} className="inline-block mr-3">
+              <span key={i} className="mr-3 inline-block">
                 {word}
               </span>
             ))}
@@ -82,9 +81,9 @@ export default function Hero() {
 
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl font-light leading-relaxed">
-            CA Finalist & Virtual CFO helping startups and growing businesses
-            turn complex financial data into high-impact growth strategies.
+            className="text-muted-foreground mb-8 max-w-2xl text-lg leading-relaxed font-light md:text-xl">
+            CA Finalist & Virtual CFO helping startups and growing businesses turn complex financial
+            data into high-impact growth strategies.
           </motion.p>
 
           <motion.div
@@ -92,12 +91,12 @@ export default function Hero() {
             className="flex flex-wrap items-center justify-center gap-6">
             <Link
               href="#work"
-              className="px-8 py-4 bg-primary text-primary-foreground rounded-full text-xs uppercase tracking-widest font-bold hover:bg-primary-light hover:scale-105 active:scale-95 transition-all shadow-lg hover:shadow-primary/20">
+              className="bg-primary text-primary-foreground hover:bg-primary-light hover:shadow-primary/20 rounded-full px-8 py-4 text-xs font-bold tracking-widest uppercase shadow-lg transition-all hover:scale-105 active:scale-95">
               Explore Solutions
             </Link>
-            <button className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-foreground hover:text-primary transition-colors group">
+            <button className="text-foreground hover:text-primary group flex items-center gap-2 text-xs font-bold tracking-widest uppercase transition-colors">
               Download Portfolio
-              <Download className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+              <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </button>
           </motion.div>
         </motion.div>
@@ -108,7 +107,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2">
-        <div className="w-px h-12 bg-gradient-to-b from-border to-transparent" />
+        <div className="from-border h-12 w-px bg-gradient-to-b to-transparent" />
       </motion.div>
     </section>
   );

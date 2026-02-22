@@ -29,17 +29,20 @@ A modern, premium personal portfolio website for a Chartered Accountant (CA) and
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd ca-portfolio
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -84,6 +87,7 @@ Replace placeholder content in the following files:
 ### Update Colors
 
 Colors are defined in `src/app/globals.css`:
+
 - Primary: `#6366F1` (indigo)
 - Secondary: `#F59E0B` (gold)
 - Background: `#0A0F1E` (navy)
@@ -115,6 +119,7 @@ npm start
 ## SEO Configuration
 
 Update metadata in `src/app/layout.tsx`:
+
 - Title
 - Description
 - Keywords

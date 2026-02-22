@@ -1,75 +1,69 @@
-"use client";
+'use client';
 
-import { motion, useInView } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { useRef } from "react";
+import { motion, useInView } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { useRef } from 'react';
 
 const blogs = [
   {
-    title: "GST Compliance Checklist for Startups in 2026",
+    title: 'GST Compliance Checklist for Startups in 2026',
     excerpt:
-      "A comprehensive guide to understanding GST requirements and staying compliant from day one.",
-    tags: ["GST", "Startups", "Compliance"],
-    readTime: "5 min read",
-    date: "Feb 20, 2026",
-    image: "from-primary/10 to-purple-500/10",
+      'A comprehensive guide to understanding GST requirements and staying compliant from day one.',
+    tags: ['GST', 'Startups', 'Compliance'],
+    readTime: '5 min read',
+    date: 'Feb 20, 2026',
+    image: 'from-primary/10 to-purple-500/10',
   },
   {
-    title: "5 Tax Saving Strategies for Growing Businesses",
+    title: '5 Tax Saving Strategies for Growing Businesses',
     excerpt:
-      "Maximize your tax savings with these proven strategies tailored for Indian businesses.",
-    tags: ["Tax Planning", "Finance", "Growth"],
-    readTime: "7 min read",
-    date: "Feb 15, 2026",
-    image: "from-secondary/10 to-orange-500/10",
+      'Maximize your tax savings with these proven strategies tailored for Indian businesses.',
+    tags: ['Tax Planning', 'Finance', 'Growth'],
+    readTime: '7 min read',
+    date: 'Feb 15, 2026',
+    image: 'from-secondary/10 to-orange-500/10',
   },
   {
-    title: "Financial Metrics Every Startup Founder Should Track",
-    excerpt:
-      "The essential KPIs and metrics that define startup success and attract investors.",
-    tags: ["Startup", "Metrics", "Fundraising"],
-    readTime: "6 min read",
-    date: "Feb 10, 2026",
-    image: "from-green-500/10 to-teal-500/10",
+    title: 'Financial Metrics Every Startup Founder Should Track',
+    excerpt: 'The essential KPIs and metrics that define startup success and attract investors.',
+    tags: ['Startup', 'Metrics', 'Fundraising'],
+    readTime: '6 min read',
+    date: 'Feb 10, 2026',
+    image: 'from-green-500/10 to-teal-500/10',
   },
 ];
 
 export default function Blog() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="blog" className="py-24 bg-muted/10" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="blog" className="bg-muted/10 py-24" ref={ref}>
+      <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="mb-20">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
-              <h2 className="text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground mb-4">
+              <h2 className="text-muted-foreground mb-4 text-[10px] font-bold tracking-[0.2em] uppercase">
                 Mindshare
               </h2>
-              <h3 className="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground">
+              <h3 className="text-foreground font-serif text-3xl leading-tight font-medium md:text-5xl">
                 Perspectives on the economic landscape.
               </h3>
             </div>
-            <p className="text-muted-foreground max-w-sm font-light leading-relaxed">
-              Expert insights on taxation, fiscal planning, and strategic growth
-              for modern enterprises.
+            <p className="text-muted-foreground max-w-sm leading-relaxed font-light">
+              Expert insights on taxation, fiscal planning, and strategic growth for modern
+              enterprises.
             </p>
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog, i) => (
-            <BlogCard
-              key={blog.title}
-              blog={blog}
-              index={i}
-              isInView={isInView}
-            />
+            <BlogCard key={blog.title} blog={blog} index={i} isInView={isInView} />
           ))}
         </div>
 
@@ -77,8 +71,8 @@ export default function Blog() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-20">
-          <button className="px-8 py-4 bg-primary text-white rounded-full text-[10px] uppercase tracking-widest font-bold hover:bg-primary-light transition-all shadow-lg shadow-primary/10">
+          className="mt-20 text-center">
+          <button className="bg-primary hover:bg-primary-light shadow-primary/10 rounded-full px-8 py-4 text-[10px] font-bold tracking-widest text-white uppercase shadow-lg transition-all">
             Access All Insights
           </button>
         </motion.div>
@@ -102,35 +96,35 @@ function BlogCard({
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group cursor-pointer">
-      <div className="relative aspect-[16/10] bg-muted rounded-[2rem] overflow-hidden mb-8">
+      <div className="bg-muted relative mb-8 aspect-[16/10] overflow-hidden rounded-[2rem]">
         <div
-          className={`absolute inset-0 bg-gradient-to-br ${blog.image} opacity-50 group-hover:scale-105 transition-transform duration-700`}
+          className={`absolute inset-0 bg-gradient-to-br ${blog.image} opacity-50 transition-transform duration-700 group-hover:scale-105`}
         />
         <div className="absolute top-6 left-6">
-          <span className="px-4 py-1.5 bg-card/80 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest font-bold text-primary border border-border/20">
+          <span className="bg-card/80 text-primary border-border/20 rounded-full border px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase backdrop-blur-md">
             {blog.tags[0]}
           </span>
         </div>
       </div>
 
       <div className="space-y-4">
-        <div className="flex items-center gap-4 text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground">
+        <div className="text-muted-foreground flex items-center gap-4 text-[10px] font-bold tracking-[0.2em] uppercase">
           <span>{blog.date}</span>
-          <span className="w-1 h-1 rounded-full bg-border" />
+          <span className="bg-border h-1 w-1 rounded-full" />
           <span>{blog.readTime}</span>
         </div>
 
-        <h4 className="text-2xl font-serif font-medium leading-tight group-hover:text-primary transition-colors duration-300">
+        <h4 className="group-hover:text-primary font-serif text-2xl leading-tight font-medium transition-colors duration-300">
           {blog.title}
         </h4>
 
-        <p className="text-sm text-muted-foreground font-light leading-relaxed line-clamp-2">
+        <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed font-light">
           {blog.excerpt}
         </p>
 
-        <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-foreground group-hover:text-primary transition-colors pt-4">
-          Read Manuscript{" "}
-          <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+        <div className="text-foreground group-hover:text-primary flex items-center gap-2 pt-4 text-[10px] font-bold tracking-widest uppercase transition-colors">
+          Read Manuscript{' '}
+          <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
         </div>
       </div>
     </motion.article>

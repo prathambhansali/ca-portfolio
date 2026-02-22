@@ -1,37 +1,35 @@
-"use client";
+'use client';
 
-import Link from "next/link";
+import Link from 'next/link';
 
 const quickLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Work", href: "#work" },
-  { name: "Blog", href: "#blog" },
-  { name: "Contact", href: "#contact" },
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Services', href: '#services' },
+  { name: 'Work', href: '#work' },
+  { name: 'Blog', href: '#blog' },
+  { name: 'Contact', href: '#contact' },
 ];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-background border-t border-border/60 pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-16 mb-20">
+    <footer className="bg-background border-border/60 border-t pt-20 pb-10">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-20 grid gap-16 md:grid-cols-4">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-                <span className="text-white font-serif font-bold text-lg">
-                  PB
-                </span>
+            <div className="mb-8 flex items-center gap-3">
+              <div className="bg-primary flex h-10 w-10 items-center justify-center rounded-xl">
+                <span className="font-serif text-lg font-bold text-white">PB</span>
               </div>
-              <span className="text-lg font-bold tracking-tight text-foreground">
+              <span className="text-foreground text-lg font-bold tracking-tight">
                 Prachiti Bhansali
               </span>
             </div>
-            <p className="text-muted-foreground font-light leading-relaxed max-w-sm mb-8">
-              Elevating financial ecosystems through strategic oversight and
-              precision-based compliance.
+            <p className="text-muted-foreground mb-8 max-w-sm leading-relaxed font-light">
+              Elevating financial ecosystems through strategic oversight and precision-based
+              compliance.
             </p>
             <div className="flex gap-4">
               {/* Minimal social links could go here if needed, or kept simple */}
@@ -39,15 +37,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground mb-8">
+            <h4 className="text-muted-foreground mb-8 text-[10px] font-bold tracking-widest uppercase">
               Resources
             </h4>
             <ul className="space-y-4">
-              {quickLinks.slice(1, 4).map((link) => (
+              {quickLinks.slice(1, 4).map(link => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -56,15 +54,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground mb-8">
+            <h4 className="text-muted-foreground mb-8 text-[10px] font-bold tracking-widest uppercase">
               Access
             </h4>
             <ul className="space-y-4">
-              {quickLinks.slice(4).map((link) => (
+              {quickLinks.slice(4).map(link => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -73,19 +71,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-12 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground/60">
+        <div className="border-border/40 flex flex-col items-center justify-between gap-6 border-t pt-12 md:flex-row">
+          <p className="text-muted-foreground/60 text-[10px] font-bold tracking-widest uppercase">
             &copy; {currentYear} Prachiti Bhansali. Precision In Finance.
           </p>
           <div className="flex items-center gap-8">
             <Link
               href="#"
-              className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground/60 hover:text-primary transition-colors">
+              className="text-muted-foreground/60 hover:text-primary text-[10px] font-bold tracking-widest uppercase transition-colors">
               Privacy Protocol
             </Link>
             <Link
               href="#"
-              className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground/60 hover:text-primary transition-colors">
+              className="text-muted-foreground/60 hover:text-primary text-[10px] font-bold tracking-widest uppercase transition-colors">
               Service Terms
             </Link>
           </div>

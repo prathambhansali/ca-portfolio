@@ -1,48 +1,47 @@
-"use client";
+'use client';
 
-import { motion, useInView } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import { useRef } from "react";
+import { motion, useInView } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import { useRef } from 'react';
 
 const caseStudies = [
   {
-    industry: "E-Commerce",
-    service: "Virtual CFO",
-    title: "Series A Funding Preparation",
+    industry: 'E-Commerce',
+    service: 'Virtual CFO',
+    title: 'Series A Funding Preparation',
     problem:
-      "A D2C brand struggling with financial clarity needed to prepare for Series A funding.",
+      'A D2C brand struggling with financial clarity needed to prepare for Series A funding.',
     solution:
-      "Implemented robust financial modeling, created investor-ready dashboards, and streamlined bookkeeping.",
-    result: "Successfully raised ₹15Cr with 3x valuation.",
-    tags: ["E-Commerce", "Virtual CFO", "Fundraising"],
+      'Implemented robust financial modeling, created investor-ready dashboards, and streamlined bookkeeping.',
+    result: 'Successfully raised ₹15Cr with 3x valuation.',
+    tags: ['E-Commerce', 'Virtual CFO', 'Fundraising'],
   },
   {
-    industry: "Manufacturing",
-    service: "Tax Planning",
-    title: "Tax Optimization for Growth",
+    industry: 'Manufacturing',
+    service: 'Tax Planning',
+    title: 'Tax Optimization for Growth',
     problem:
-      "A mid-sized manufacturing unit facing high tax liabilities due to inefficient structure.",
+      'A mid-sized manufacturing unit facing high tax liabilities due to inefficient structure.',
     solution:
-      "Restructured business entities, implemented GST optimization, and utilized available tax incentives.",
-    result: "Achieved 40% reduction in tax outflow.",
-    tags: ["Manufacturing", "Tax Planning", "GST"],
+      'Restructured business entities, implemented GST optimization, and utilized available tax incentives.',
+    result: 'Achieved 40% reduction in tax outflow.',
+    tags: ['Manufacturing', 'Tax Planning', 'GST'],
   },
   {
-    industry: "SaaS",
-    service: "Startup Advisory",
-    title: "From Bootstrapped to Profitable",
-    problem:
-      "A B2B SaaS company needed guidance on financial systems before scaling.",
+    industry: 'SaaS',
+    service: 'Startup Advisory',
+    title: 'From Bootstrapped to Profitable',
+    problem: 'A B2B SaaS company needed guidance on financial systems before scaling.',
     solution:
-      "Set up complete finance stack, implemented revenue recognition policies, and created KPIs.",
-    result: "Achieved 200% YoY growth with clear unit economics.",
-    tags: ["SaaS", "Startup Advisory", "Financial Modeling"],
+      'Set up complete finance stack, implemented revenue recognition policies, and created KPIs.',
+    result: 'Achieved 200% YoY growth with clear unit economics.',
+    tags: ['SaaS', 'Startup Advisory', 'Financial Modeling'],
   },
 ];
 
 export default function Work() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -55,43 +54,35 @@ export default function Work() {
   };
 
   return (
-    <section
-      id="work"
-      className="py-24 bg-background relative overflow-hidden"
-      ref={ref}>
+    <section id="work" className="bg-background relative overflow-hidden py-24" ref={ref}>
       {/* Decorative background element */}
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/2 rounded-full blur-[120px] -ml-[300px] -mb-[300px] pointer-events-none" />
+      <div className="bg-secondary/2 pointer-events-none absolute bottom-0 left-0 -mb-[300px] -ml-[300px] h-[600px] w-[600px] rounded-full blur-[120px]" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20">
-          <h2 className="text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground mb-4">
+          className="mb-20 text-center">
+          <h2 className="text-muted-foreground mb-4 text-[10px] font-bold tracking-[0.2em] uppercase">
             Portfolio
           </h2>
-          <h3 className="text-3xl md:text-5xl font-serif font-medium mb-6">
+          <h3 className="mb-6 font-serif text-3xl font-medium md:text-5xl">
             Selected Case Studies
           </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
-            Real results from real clients. Here&apos;s how I&apos;ve helped
-            businesses scale through strategic financial leadership.
+          <p className="text-muted-foreground mx-auto max-w-2xl leading-relaxed font-light">
+            Real results from real clients. Here&apos;s how I&apos;ve helped businesses scale
+            through strategic financial leadership.
           </p>
         </motion.div>
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          animate={isInView ? 'visible' : 'hidden'}
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {caseStudies.map((study, i) => (
-            <CaseStudyCard
-              key={study.title}
-              study={study}
-              index={i}
-              isInView={isInView}
-            />
+            <CaseStudyCard key={study.title} study={study} index={i} isInView={isInView} />
           ))}
         </motion.div>
 
@@ -99,8 +90,8 @@ export default function Work() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-16">
-          <button className="px-8 py-4 border border-border rounded-full text-xs uppercase tracking-widest font-bold hover:bg-muted transition-all duration-300">
+          className="mt-16 text-center">
+          <button className="border-border hover:bg-muted rounded-full border px-8 py-4 text-xs font-bold tracking-widest uppercase transition-all duration-300">
             View Archive
           </button>
         </motion.div>
@@ -130,47 +121,43 @@ function CaseStudyCard({
   return (
     <motion.div
       variants={itemVariants}
-      className="bg-card border border-border/60 rounded-[2.5rem] overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 group flex flex-col h-full hover:-translate-y-2">
-      <div className="p-10 flex-grow">
-        <div className="flex flex-wrap gap-2 mb-8">
-          {study.tags.slice(0, 2).map((tag) => (
+      className="bg-card border-border/60 hover:shadow-primary/5 group flex h-full flex-col overflow-hidden rounded-[2.5rem] border transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+      <div className="flex-grow p-10">
+        <div className="mb-8 flex flex-wrap gap-2">
+          {study.tags.slice(0, 2).map(tag => (
             <span
               key={tag}
-              className="px-3 py-1 bg-muted rounded-full text-[10px] uppercase tracking-widest font-bold text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+              className="bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary rounded-full px-3 py-1 text-[10px] font-bold tracking-widest uppercase transition-colors">
               {tag}
             </span>
           ))}
         </div>
 
-        <h4 className="text-2xl font-serif font-medium mb-6 leading-tight group-hover:text-primary transition-colors">
+        <h4 className="group-hover:text-primary mb-6 font-serif text-2xl leading-tight font-medium transition-colors">
           {study.title}
         </h4>
 
         <div className="space-y-6">
           <div>
-            <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground/60 mb-2">
+            <p className="text-muted-foreground/60 mb-2 text-[10px] font-bold tracking-[0.2em] uppercase">
               Challenge
             </p>
-            <p className="text-sm text-muted-foreground font-light leading-relaxed">
+            <p className="text-muted-foreground text-sm leading-relaxed font-light">
               {study.problem}
             </p>
           </div>
           <div>
-            <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-secondary mb-2 uppercase">
+            <p className="text-secondary mb-2 text-[10px] font-bold tracking-[0.2em] uppercase">
               Outcome
             </p>
-            <p className="text-lg font-medium text-foreground tracking-tight">
-              {study.result}
-            </p>
+            <p className="text-foreground text-lg font-medium tracking-tight">{study.result}</p>
           </div>
         </div>
       </div>
 
-      <div className="px-10 py-6 bg-muted/30 border-t border-border/40 flex items-center justify-between group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-        <span className="text-xs uppercase tracking-widest font-bold">
-          Deep Dive
-        </span>
-        <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+      <div className="bg-muted/30 border-border/40 group-hover:bg-primary group-hover:text-primary-foreground flex items-center justify-between border-t px-10 py-6 transition-all duration-500">
+        <span className="text-xs font-bold tracking-widest uppercase">Deep Dive</span>
+        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
       </div>
     </motion.div>
   );

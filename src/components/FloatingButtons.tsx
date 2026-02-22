@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUp, MessageCircle } from "lucide-react";
-import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowUp, MessageCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function FloatingButtons() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -11,12 +11,12 @@ export default function FloatingButtons() {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 500);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -29,9 +29,9 @@ export default function FloatingButtons() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-card border border-border rounded-full flex items-center justify-center shadow-xl hover:shadow-primary/10 transition-all duration-300 group"
+          className="bg-card border-border hover:shadow-primary/10 group fixed right-8 bottom-8 z-50 flex h-14 w-14 items-center justify-center rounded-full border shadow-xl transition-all duration-300"
           aria-label="Contact on WhatsApp">
-          <MessageCircle className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+          <MessageCircle className="text-primary h-6 w-6 transition-transform group-hover:scale-110" />
         </motion.a>
 
         <AnimatePresence>
@@ -41,9 +41,9 @@ export default function FloatingButtons() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 20, opacity: 0 }}
               onClick={scrollToTop}
-              className="fixed bottom-28 right-8 z-50 w-14 h-14 bg-card border border-border rounded-full flex items-center justify-center shadow-xl hover:shadow-primary/10 transition-all duration-300 group"
+              className="bg-card border-border hover:shadow-primary/10 group fixed right-8 bottom-28 z-50 flex h-14 w-14 items-center justify-center rounded-full border shadow-xl transition-all duration-300"
               aria-label="Back to top">
-              <ArrowUp className="w-5 h-5 text-primary group-hover:-translate-y-1 transition-transform" />
+              <ArrowUp className="text-primary h-5 w-5 transition-transform group-hover:-translate-y-1" />
             </motion.button>
           )}
         </AnimatePresence>

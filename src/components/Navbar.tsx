@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Menu, X } from "lucide-react";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import ThemeToggle from "./ThemeToggle";
+import { cn } from '@/lib/utils';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowRight, Menu, X } from 'lucide-react';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Work", href: "#work" },
-  { name: "Blog", href: "#blog" },
-  { name: "Contact", href: "#contact" },
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Services', href: '#services' },
+  { name: 'Work', href: '#work' },
+  { name: 'Blog', href: '#blog' },
+  { name: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
@@ -24,64 +24,60 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-[100] transition-all duration-500",
-        isScrolled ?
-          "py-4 bg-background/80 backdrop-blur-xl border-b border-border/40 shadow-sm"
-        : "py-6 bg-transparent",
+        'fixed top-0 right-0 left-0 z-[100] transition-all duration-500',
+        isScrolled
+          ? 'bg-background/80 border-border/40 border-b py-4 shadow-sm backdrop-blur-xl'
+          : 'bg-transparent py-6'
       )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center transition-transform group-hover:scale-105">
-              <span className="text-white font-serif font-bold text-lg">
-                PB
-              </span>
+          <Link href="/" className="group flex items-center gap-3">
+            <div className="bg-primary flex h-10 w-10 items-center justify-center rounded-xl transition-transform group-hover:scale-105">
+              <span className="font-serif text-lg font-bold text-white">PB</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-bold text-foreground leading-none">
+              <span className="text-foreground text-sm leading-none font-bold">
                 Prachiti Bhansali
               </span>
-              <span className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1">
+              <span className="text-muted-foreground mt-1 text-[10px] tracking-wider uppercase">
                 Chartered Accountant
               </span>
             </div>
           </Link>
 
-          <div className="hidden md:flex items-center gap-4">
-            {navLinks.map((link) => (
+          <div className="hidden items-center gap-4 md:flex">
+            {navLinks.map(link => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-xs font-medium uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors relative group">
+                className="text-muted-foreground hover:text-primary group relative text-xs font-medium tracking-widest uppercase transition-colors">
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                <span className="bg-primary absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden items-center gap-3 md:flex">
             <ThemeToggle />
             <Link
               href="#contact"
-              className="px-6 py-2 bg-primary text-primary-foreground rounded-full text-xs uppercase tracking-widest font-bold hover:bg-primary-light transition-all shadow-lg hover:shadow-primary/20 flex items-center gap-2">
+              className="bg-primary text-primary-foreground hover:bg-primary-light hover:shadow-primary/20 flex items-center gap-2 rounded-full px-6 py-2 text-xs font-bold tracking-widest uppercase shadow-lg transition-all">
               Contact
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground">
-            {isMobileMenuOpen ?
-              <X className="w-6 h-6" />
-            : <Menu className="w-6 h-6" />}
+            className="text-foreground p-2 md:hidden">
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
@@ -90,22 +86,22 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+            animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-t border-border py-6 px-6 space-y-4 shadow-xl overflow-hidden">
-            {navLinks.map((link) => (
+            className="bg-background border-border space-y-4 overflow-hidden border-t px-6 py-6 shadow-xl md:hidden">
+            {navLinks.map(link => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-sm font-medium uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors py-2">
+                className="text-muted-foreground hover:text-primary block py-2 text-sm font-medium tracking-widest uppercase transition-colors">
                 {link.name}
               </Link>
             ))}
             <Link
               href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="bg-primary text-primary-foreground w-full py-4 rounded-xl text-xs uppercase tracking-widest font-bold flex justify-center items-center">
+              className="bg-primary text-primary-foreground flex w-full items-center justify-center rounded-xl py-4 text-xs font-bold tracking-widest uppercase">
               Contact
             </Link>
           </motion.div>
