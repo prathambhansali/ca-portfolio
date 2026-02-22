@@ -20,38 +20,38 @@ export default function Certifications() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-12 md:py-24" ref={ref}>
+    <section className="py-16 md:py-24" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-sm font-medium text-indigo-400 mb-2">
+          <h2 className="text-sm font-medium text-primary mb-2">
             Certifications & Tools
           </h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             Professional Expertise
           </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-xl md:max-w-2xl mx-auto text-sm sm:text-base">
             Industry-recognized certifications and proficiency in modern financial tools.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
           {tools.map((tool, i) => (
             <motion.div
               key={tool.name}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="glass rounded-xl p-6 flex flex-col items-center justify-center hover-lift group"
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="glass rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center hover-lift group"
             >
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500/20 to-gold/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <tool.icon className="w-7 h-7 text-indigo-400" />
+              <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
+                <tool.icon className="w-5 sm:w-6 h-5 sm:h-6 text-primary" />
               </div>
-              <span className="font-medium text-foreground">{tool.name}</span>
+              <span className="font-medium text-foreground text-sm">{tool.name}</span>
               <span className="text-xs text-muted-foreground mt-1">{tool.category}</span>
             </motion.div>
           ))}

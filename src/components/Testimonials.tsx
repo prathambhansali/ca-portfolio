@@ -44,22 +44,22 @@ const testimonials = [
 
 function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0] }) {
   return (
-    <div className="flex-shrink-0 w-80 md:w-96 glass rounded-xl p-6 mx-4">
-      <div className="flex gap-1 mb-4">
+    <div className="flex-shrink-0 w-72 sm:w-80 md:w-96 glass rounded-xl p-5 sm:p-6 mx-3 sm:mx-4">
+      <div className="flex gap-1 mb-3 sm:mb-4">
         {[...Array(testimonial.rating)].map((_, i) => (
-          <Star key={i} className="w-4 h-4 text-gold fill-gold" />
+          <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-secondary fill-secondary" />
         ))}
       </div>
-      <p className="text-muted-foreground mb-6 leading-relaxed">&quot;{testimonial.text}&quot;</p>
+      <p className="text-muted-foreground mb-4 sm:mb-6 leading-relaxed text-sm">&quot;{testimonial.text}&quot;</p>
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-gold flex items-center justify-center">
-          <span className="text-white font-medium text-sm">
+        <div className="w-9 sm:w-10 h-9 sm:h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+          <span className="text-white font-medium text-xs sm:text-sm">
             {testimonial.name.charAt(0)}
           </span>
         </div>
         <div>
-          <div className="font-medium text-foreground">{testimonial.name}</div>
-          <div className="text-sm text-muted-foreground">{testimonial.company}</div>
+          <div className="font-medium text-foreground text-sm">{testimonial.name}</div>
+          <div className="text-xs sm:text-sm text-muted-foreground">{testimonial.company}</div>
         </div>
       </div>
     </div>
@@ -68,8 +68,8 @@ function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0
 
 export default function Testimonials() {
   return (
-    <section className="py-12 md:py-24 bg-navy-light/30 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+    <section className="py-16 md:py-24 bg-section overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -77,19 +77,19 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="text-sm font-medium text-indigo-400 mb-2">Testimonials</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-sm font-medium text-primary mb-2">Testimonials</h2>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             What Clients Say
           </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-xl md:max-w-2xl mx-auto text-sm sm:text-base">
             Trusted by businesses across industries.
           </p>
         </motion.div>
       </div>
 
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-navy to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-navy to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 md:w-32 bg-gradient-to-l from-background to-transparent z-10" />
 
         <div className="flex animate-marquee">
           {[...testimonials, ...testimonials].map((testimonial, i) => (

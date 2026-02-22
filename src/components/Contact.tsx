@@ -41,19 +41,19 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-12 md:py-24" ref={ref}>
+    <section id="contact" className="py-16 md:py-24" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-sm font-medium text-indigo-400 mb-2">Contact</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-sm font-medium text-primary mb-2">Contact</h2>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             Let&apos;s Work Together
           </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-xl md:max-w-2xl mx-auto text-sm sm:text-base">
             Ready to transform your business finances? Get in touch today.
           </p>
         </motion.div>
@@ -64,53 +64,53 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="mb-8">
-              <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 text-green-400 rounded-full text-sm mb-6">
-                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            <div className="mb-6 sm:mb-8">
+              <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-xs sm:text-sm mb-4 sm:mb-6">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 Currently accepting new clients
               </span>
-              <h4 className="text-xl font-semibold mb-6">Get in Touch</h4>
-              <p className="text-muted-foreground mb-8">
+              <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Get in Touch</h4>
+              <p className="text-muted-foreground mb-6 sm:mb-8 text-sm sm:text-base">
                 Have questions about your finances? I&apos;m here to help. Reach out through
                 any of these channels.
               </p>
             </div>
 
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-indigo-400" />
+            <div className="space-y-4 sm:space-y-5">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-4 sm:w-5 h-4 sm:h-5 text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground">Email</div>
-                  <div className="font-medium">prachitibhansali@gmail.com</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">Email</div>
+                  <div className="font-medium text-sm sm:text-base">prachitibhansali@gmail.com</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-indigo-400" />
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-4 sm:w-5 h-4 sm:h-5 text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground">Phone</div>
-                  <div className="font-medium">+91 98765 43210</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">Phone</div>
+                  <div className="font-medium text-sm sm:text-base">+91 98765 43210</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-indigo-400" />
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-4 sm:w-5 h-4 sm:h-5 text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground">Location</div>
-                  <div className="font-medium">Mumbai, India</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground">Location</div>
+                  <div className="font-medium text-sm sm:text-base">Mumbai, India</div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8">
-              <h5 className="font-medium mb-4">Follow Me</h5>
-              <div className="flex gap-3">
+            <div className="mt-6 sm:mt-8">
+              <h5 className="font-medium mb-3 sm:mb-4 text-sm sm:text-base">Follow Me</h5>
+              <div className="flex gap-2 sm:gap-3">
                 {[
                   { icon: Linkedin, label: "LinkedIn" },
                   { icon: Instagram, label: "Instagram" },
@@ -120,10 +120,10 @@ export default function Contact() {
                   <a
                     key={social.label}
                     href="#"
-                    className="w-10 h-10 rounded-lg bg-navy border border-border flex items-center justify-center hover:border-indigo-500 transition-colors"
+                    className="w-9 sm:w-10 h-9 sm:h-10 rounded-lg bg-card border border-border flex items-center justify-center hover:border-primary transition-colors"
                     aria-label={social.label}
                   >
-                    <social.icon className="w-5 h-5 text-muted-foreground hover:text-indigo-400 transition-colors" />
+                    <social.icon className="w-4 sm:w-5 h-4 sm:h-5 text-muted-foreground hover:text-primary transition-colors" />
                   </a>
                 ))}
               </div>
@@ -135,8 +135,8 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <form onSubmit={handleSubmit} className="glass rounded-xl p-4 sm:p-8">
-              <div className="space-y-6">
+            <form onSubmit={handleSubmit} className="glass rounded-xl p-5 sm:p-6 md:p-8">
+              <div className="space-y-4 sm:space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
                     Name
@@ -149,7 +149,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full px-3 sm:px-4 py-3 bg-navy border border-border rounded-lg focus:outline-none focus:border-indigo-500 transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-card border border-border rounded-lg focus:outline-none focus:border-primary transition-colors text-sm sm:text-base"
                     placeholder="Your name"
                   />
                 </div>
@@ -166,7 +166,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full px-3 sm:px-4 py-3 bg-navy border border-border rounded-lg focus:outline-none focus:border-indigo-500 transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-card border border-border rounded-lg focus:outline-none focus:border-primary transition-colors text-sm sm:text-base"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -182,7 +182,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, service: e.target.value })
                     }
-                    className="w-full px-3 sm:px-4 py-3 bg-navy border border-border rounded-lg focus:outline-none focus:border-indigo-500 transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-card border border-border rounded-lg focus:outline-none focus:border-primary transition-colors text-sm sm:text-base"
                   >
                     <option value="">Select a service</option>
                     {services.map((service) => (
@@ -205,7 +205,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    className="w-full px-3 sm:px-4 py-3 bg-navy border border-border rounded-lg focus:outline-none focus:border-indigo-500 transition-colors resize-none"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-card border border-border rounded-lg focus:outline-none focus:border-primary transition-colors resize-none text-sm sm:text-base"
                     placeholder="Tell me about your project..."
                   />
                 </div>
@@ -213,17 +213,17 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitted}
-                  className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-green-600 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-indigo-500/25"
+                  className="btn-primary w-full py-3 sm:py-4 flex items-center justify-center gap-2 text-sm sm:text-base disabled:opacity-80"
                 >
                   {isSubmitted ? (
                     <>
-                      <CheckCircle className="w-5 h-5" />
+                      <CheckCircle className="w-4 sm:w-5 h-4 sm:h-5" />
                       Message Sent!
                     </>
                   ) : (
                     <>
                       Send Message
-                      <Send className="w-5 h-5" />
+                      <Send className="w-4 sm:w-5 h-4 sm:h-5" />
                     </>
                   )}
                 </button>

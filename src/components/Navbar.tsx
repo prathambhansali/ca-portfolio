@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -48,7 +49,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -61,10 +62,11 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <Link
               href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25"
+              className="btn-primary inline-flex items-center gap-2 px-5 py-2.5"
             >
               Book a Call
               <ArrowRight className="w-4 h-4" />

@@ -36,40 +36,40 @@ export default function WhyMe() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-12 md:py-24 bg-navy-light/30" ref={ref}>
+    <section className="py-16 md:py-24 bg-section" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-sm font-medium text-indigo-400 mb-2">Why Choose Me</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-sm font-medium text-primary mb-2">Why Choose Me</h2>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             What Sets Me Apart
           </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-xl md:max-w-2xl mx-auto text-sm sm:text-base">
             My commitment to client success goes beyond traditional accounting services.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
           {usps.map((usp, i) => (
             <motion.div
               key={usp.title}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 p-4 sm:p-6 glass rounded-xl hover-lift"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="flex flex-col sm:flex-row gap-4 sm:gap-5 p-4 sm:p-6 glass rounded-xl hover-lift"
             >
               <div className="flex-shrink-0">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500/30 to-gold/30 flex items-center justify-center">
-                  <usp.icon className="w-7 h-7 text-indigo-400" />
+                <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <usp.icon className="w-5 sm:w-6 h-5 sm:h-6 text-primary" />
                 </div>
               </div>
               <div>
-                <h4 className="text-lg font-semibold mb-2">{usp.title}</h4>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <h4 className="text-base sm:text-lg font-semibold mb-2">{usp.title}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {usp.description}
                 </p>
               </div>

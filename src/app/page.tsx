@@ -13,6 +13,7 @@ import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -62,19 +63,21 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className={`${inter.variable} ${playfair.variable} min-h-screen bg-navy text-foreground`}>
-      <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <WhyMe />
-      <Work />
-      <Testimonials />
-      <Certifications />
-      <Blog />
-      <Contact />
-      <Footer />
-      <FloatingButtons />
-    </main>
+    <ThemeProvider>
+      <main className={`${inter.variable} ${playfair.variable} min-h-screen bg-navy text-foreground`}>
+        <Navbar />
+        <Hero />
+        <About />
+        <Services />
+        <WhyMe />
+        <Work />
+        <Testimonials />
+        <Certifications />
+        <Blog />
+        <Contact />
+        <Footer />
+        <FloatingButtons />
+      </main>
+    </ThemeProvider>
   );
 }
