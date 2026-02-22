@@ -21,69 +21,85 @@ export default function Hero() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.21, 0.45, 0.32, 0.9] as any,
+      },
+    },
+  };
+
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       <div className="absolute inset-0 bg-gradient-radial pointer-events-none" />
 
-      {/* Refined Background Elements */}
-      <div className="absolute top-[10%] left-[5%] w-96 h-96 bg-primary/3 rounded-full blur-[100px] animate-float" />
-      <div
-        className="absolute bottom-[10%] right-[5%] w-80 h-80 bg-secondary/3 rounded-full blur-[100px] animate-float"
-        style={{ animationDelay: "2s" }}
-      />
+      {/* Advanced Decorative Elements */}
+      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] animate-pulse-glow" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[120px] animate-float-slow" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
+      {/* Financial Motif - Modern Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+
+      <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-6">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card/60 backdrop-blur-sm text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground border border-border">
-            <Sparkles className="w-3 h-3 text-secondary" />
-            Strategic Financial Leadership
-          </span>
-        </motion.div>
-
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium mb-6 leading-[1.1] tracking-tight text-foreground">
-          {words.map((word, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.05 * i,
-                ease: [0.21, 0.45, 0.32, 0.9],
-              }}
-              className="inline-block mr-3">
-              {word}
-            </motion.span>
-          ))}
-        </h1>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
           className="flex flex-col items-center">
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl font-light leading-relaxed">
+          <motion.div variants={itemVariants} className="mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card/60 backdrop-blur-sm text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground border border-border">
+              <Sparkles className="w-3 h-3 text-secondary" />
+              Strategic Financial Leadership
+            </span>
+          </motion.div>
+
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium mb-6 leading-[1.1] tracking-tight text-foreground">
+            {words.map((word, i) => (
+              <span key={i} className="inline-block mr-3">
+                {word}
+              </span>
+            ))}
+          </motion.h1>
+
+          <motion.p
+            variants={itemVariants}
+            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl font-light leading-relaxed">
             CA Finalist & Virtual CFO helping startups and growing businesses
             turn complex financial data into high-impact growth strategies.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-wrap items-center justify-center gap-6">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center justify-center gap-6">
             <Link
               href="#work"
-              className="px-8 py-4 bg-primary text-primary-foreground rounded-full text-xs uppercase tracking-widest font-bold hover:bg-primary-light transition-all shadow-lg hover:shadow-primary/20">
+              className="px-8 py-4 bg-primary text-primary-foreground rounded-full text-xs uppercase tracking-widest font-bold hover:bg-primary-light hover:scale-105 active:scale-95 transition-all shadow-lg hover:shadow-primary/20">
               Explore Solutions
             </Link>
             <button className="flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-foreground hover:text-primary transition-colors group">
               Download Portfolio
               <Download className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
             </button>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 

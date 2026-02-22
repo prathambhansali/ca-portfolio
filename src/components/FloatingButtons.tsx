@@ -41,7 +41,7 @@ export default function FloatingButtons() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 20, opacity: 0 }}
               onClick={scrollToTop}
-              className="fixed bottom-28 right-8 z-50 w-14 h-14 bg-white border border-border rounded-full flex items-center justify-center shadow-xl hover:shadow-primary/10 transition-all duration-300 group"
+              className="fixed bottom-28 right-8 z-50 w-14 h-14 bg-card border border-border rounded-full flex items-center justify-center shadow-xl hover:shadow-primary/10 transition-all duration-300 group"
               aria-label="Back to top">
               <ArrowUp className="w-5 h-5 text-primary group-hover:-translate-y-1 transition-transform" />
             </motion.button>

@@ -39,7 +39,7 @@ export default function Blog() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="blog" className="py-24 md:py-32 bg-muted/10" ref={ref}>
+    <section id="blog" className="py-24 bg-muted/10" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

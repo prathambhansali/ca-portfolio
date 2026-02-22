@@ -44,9 +44,25 @@ export default function Work() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
   return (
-    <section id="work" className="py-24 md:py-32 bg-background" ref={ref}>
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="work"
+      className="py-24 bg-background relative overflow-hidden"
+      ref={ref}>
+      {/* Decorative background element */}
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/2 rounded-full blur-[120px] -ml-[300px] -mb-[300px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -64,7 +80,11 @@ export default function Work() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {caseStudies.map((study, i) => (
             <CaseStudyCard
               key={study.title}
@@ -73,7 +93,7 @@ export default function Work() {
               isInView={isInView}
             />
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -98,18 +118,25 @@ function CaseStudyCard({
   index: number;
   isInView: boolean;
 }) {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 },
+    },
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-card border border-border/60 rounded-[2.5rem] overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 group flex flex-col h-full">
+      variants={itemVariants}
+      className="bg-card border border-border/60 rounded-[2.5rem] overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 group flex flex-col h-full hover:-translate-y-2">
       <div className="p-10 flex-grow">
         <div className="flex flex-wrap gap-2 mb-8">
           {study.tags.slice(0, 2).map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 bg-muted rounded-full text-[10px] uppercase tracking-widest font-bold text-muted-foreground">
+              className="px-3 py-1 bg-muted rounded-full text-[10px] uppercase tracking-widest font-bold text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors">
               {tag}
             </span>
           ))}
@@ -139,11 +166,11 @@ function CaseStudyCard({
         </div>
       </div>
 
-      <div className="px-10 py-6 bg-muted/30 border-t border-border/40 flex items-center justify-between group-hover:bg-primary group-hover:text-white transition-all duration-500">
+      <div className="px-10 py-6 bg-muted/30 border-t border-border/40 flex items-center justify-between group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
         <span className="text-xs uppercase tracking-widest font-bold">
           Deep Dive
         </span>
-        <ArrowUpRight className="w-4 h-4" />
+        <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
       </div>
     </motion.div>
   );

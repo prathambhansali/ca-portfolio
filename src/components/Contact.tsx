@@ -41,7 +41,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-muted/10" ref={ref}>
+    <section id="contact" className="py-24 bg-muted/10" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20 items-stretch">
           <motion.div
@@ -102,7 +102,7 @@ export default function Contact() {
                   <a
                     key={social.label}
                     href="#"
-                    className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
+                    className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 shadow-sm"
                     aria-label={social.label}>
                     <social.icon className="w-4 h-4" />
                   </a>
@@ -135,7 +135,7 @@ export default function Contact() {
                       onChange={(e) =>
                         setFormData({ ...formData, name: e.target.value })
                       }
-                      className="w-full px-5 py-4 bg-muted/30 border-transparent rounded-2xl focus:bg-white focus:border-primary focus:ring-0 transition-all text-sm"
+                      className="w-full px-5 py-4 bg-muted/30 border-transparent rounded-2xl focus:bg-card focus:border-primary focus:ring-0 transition-all text-sm"
                       placeholder="Jane Doe"
                     />
                   </div>
@@ -153,7 +153,7 @@ export default function Contact() {
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
                       }
-                      className="w-full px-5 py-4 bg-muted/30 border-transparent rounded-2xl focus:bg-white focus:border-primary focus:ring-0 transition-all text-sm"
+                      className="w-full px-5 py-4 bg-muted/30 border-transparent rounded-2xl focus:bg-card focus:border-primary focus:ring-0 transition-all text-sm"
                       placeholder="jane@company.com"
                     />
                   </div>
@@ -172,7 +172,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, service: e.target.value })
                     }
-                    className="w-full px-5 py-4 bg-muted/30 border-transparent rounded-2xl focus:bg-white focus:border-primary focus:ring-0 transition-all text-sm appearance-none">
+                    className="w-full px-5 py-4 bg-muted/30 border-transparent rounded-2xl focus:bg-card focus:border-primary focus:ring-0 transition-all text-sm appearance-none">
                     <option value="">Select a service focus</option>
                     {services.map((service) => (
                       <option key={service} value={service}>
@@ -196,7 +196,7 @@ export default function Contact() {
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    className="w-full px-5 py-4 bg-muted/30 border-transparent rounded-2xl focus:bg-white focus:border-primary focus:ring-0 transition-all text-sm resize-none"
+                    className="w-full px-5 py-4 bg-muted/30 border-transparent rounded-2xl focus:bg-card focus:border-primary focus:ring-0 transition-all text-sm resize-none"
                     placeholder="Describe your current financial ecosystem..."
                   />
                 </div>

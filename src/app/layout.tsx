@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/components/ThemeProvider";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
@@ -15,7 +16,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Prachiti Bhansali | CA Final | Virtual CFO | Tax & Finance Strategist",
+  title:
+    "Prachiti Bhansali | CA Final | Virtual CFO | Tax & Finance Strategist",
   description:
     "Chartered Accountant specializing in GST Advisory, Startup CFO Services, Financial Modeling, and Tax Planning.",
   keywords: [
@@ -37,8 +39,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
-        {children}
+      <body
+        className={`${inter.variable} ${playfair.variable} font-sans antialiased text-foreground selection:bg-primary/10 selection:text-primary`}>
+        <div className="noise-overlay" />
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

@@ -1,15 +1,27 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useTheme } from "./ThemeProvider";
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="p-3 rounded-xl bg-card border border-border h-[46px] w-[46px]" />
+    );
+  }
 
   return (
     <button
       onClick={toggleTheme}
-      className="p-3 rounded-xl bg-white border border-border hover:border-primary hover:bg-muted transition-all duration-300 shadow-sm"
+      className="p-3 rounded-xl bg-card border border-border hover:border-primary hover:bg-muted transition-all duration-300 shadow-sm"
       aria-label="Toggle theme">
       {theme === "dark" ?
         <Sun className="w-4 h-4 text-primary" />

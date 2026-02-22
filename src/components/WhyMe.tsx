@@ -36,7 +36,7 @@ export default function WhyMe() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 md:py-32 bg-muted/30" ref={ref}>
+    <section className="py-24 bg-muted/30" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           <motion.div

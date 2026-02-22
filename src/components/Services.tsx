@@ -70,8 +70,24 @@ export default function Services() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   return (
-    <section id="services" className="py-24 md:py-32 bg-muted/10" ref={ref}>
+    <section
+      id="services"
+      className="py-24 bg-muted/10 relative overflow-hidden"
+      ref={ref}>
+      {/* Subtle Background Detail */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/2 rounded-full blur-[150px] -mr-[400px] -mt-[400px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -94,7 +110,11 @@ export default function Services() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[240px]">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[240px]">
           {services.map((service, i) => (
             <ServiceCard
               key={service.title}
@@ -103,7 +123,7 @@ export default function Services() {
               isInView={isInView}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -118,20 +138,30 @@ function ServiceCard({
   index: number;
   isInView: boolean;
 }) {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5 },
+    },
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
+      variants={itemVariants}
       className={`bg-card border border-border/60 rounded-[2.5rem] p-10 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 group relative overflow-hidden flex flex-col justify-between ${
         service.colSpan || ""
       }`}>
       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[5rem] group-hover:bg-primary transition-colors duration-500 -mr-10 -mt-10" />
       <div className="space-y-4">
-        <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-500">
+        <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-500 group-hover:rotate-6">
           <service.icon className="w-5 h-5" />
         </div>
-        <h4 className="text-lg font-medium tracking-tight">{service.title}</h4>
+        <h4 className="text-lg font-medium tracking-tight group-hover:text-primary transition-colors">
+          {service.title}
+        </h4>
       </div>
 
       <p className="text-sm text-muted-foreground font-light leading-relaxed group-hover:text-foreground transition-colors duration-300">
