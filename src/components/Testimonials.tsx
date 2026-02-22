@@ -42,61 +42,73 @@ const testimonials = [
   },
 ];
 
-function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0] }) {
-  return (
-    <div className="flex-shrink-0 w-72 sm:w-80 md:w-96 glass rounded-xl p-5 sm:p-6 mx-3 sm:mx-4">
-      <div className="flex gap-1 mb-3 sm:mb-4">
-        {[...Array(testimonial.rating)].map((_, i) => (
-          <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-secondary fill-secondary" />
-        ))}
-      </div>
-      <p className="text-muted-foreground mb-4 sm:mb-6 leading-relaxed text-sm">&quot;{testimonial.text}&quot;</p>
-      <div className="flex items-center gap-3">
-        <div className="w-9 sm:w-10 h-9 sm:h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-          <span className="text-white font-medium text-xs sm:text-sm">
-            {testimonial.name.charAt(0)}
-          </span>
-        </div>
-        <div>
-          <div className="font-medium text-foreground text-sm">{testimonial.name}</div>
-          <div className="text-xs sm:text-sm text-muted-foreground">{testimonial.company}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Testimonials() {
   return (
-    <section className="py-16 md:py-24 bg-section overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16">
+    <section className="py-24 md:py-32 bg-muted/10 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 mb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center"
-        >
-          <h2 className="text-sm font-medium text-primary mb-2">Testimonials</h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            What Clients Say
+          className="text-center">
+          <h2 className="text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground mb-4">
+            Accolades
+          </h2>
+          <h3 className="text-3xl md:text-5xl font-serif font-medium mb-6">
+            Voices of Partnership
           </h3>
-          <p className="text-muted-foreground max-w-xl md:max-w-2xl mx-auto text-sm sm:text-base">
-            Trusted by businesses across industries.
+          <p className="text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
+            Trusted by founders and entrepreneurs to navigate their most
+            critical financial milestones.
           </p>
         </motion.div>
       </div>
 
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 md:w-32 bg-gradient-to-l from-background to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
 
-        <div className="flex animate-marquee">
+        <div className="flex animate-marquee hover:[animation-play-state:paused] py-10">
           {[...testimonials, ...testimonials].map((testimonial, i) => (
             <TestimonialCard key={i} testimonial={testimonial} />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function TestimonialCard({
+  testimonial,
+}: {
+  testimonial: (typeof testimonials)[0];
+}) {
+  return (
+    <div className="flex-shrink-0 w-80 md:w-[28rem] bg-card border border-border/60 rounded-[2.5rem] p-10 mx-6 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 group">
+      <div className="flex gap-1 mb-8">
+        {[...Array(testimonial.rating)].map((_, i) => (
+          <Star key={i} className="w-3 h-3 text-secondary fill-secondary" />
+        ))}
+      </div>
+      <p className="text-lg font-serif italic text-foreground mb-10 leading-relaxed">
+        &quot;{testimonial.text}&quot;
+      </p>
+      <div className="flex items-center gap-4">
+        <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center shadow-lg shadow-primary/10">
+          <span className="text-white font-serif font-bold text-lg">
+            {testimonial.name.charAt(0)}
+          </span>
+        </div>
+        <div>
+          <div className="text-sm font-bold tracking-tight text-foreground">
+            {testimonial.name}
+          </div>
+          <div className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground/60">
+            {testimonial.company}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

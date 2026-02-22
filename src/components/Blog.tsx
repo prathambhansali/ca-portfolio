@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Clock, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
 
 const blogs = [
   {
@@ -39,26 +39,37 @@ export default function Blog() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="blog" className="py-16 md:py-24 bg-section" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="blog" className="py-24 md:py-32 bg-muted/10" ref={ref}>
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
-        >
-          <h2 className="text-sm font-medium text-primary mb-2">Blog</h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            Latest Insights
-          </h3>
-          <p className="text-muted-foreground max-w-xl md:max-w-2xl mx-auto text-sm sm:text-base">
-            Expert perspectives on finance, taxation, and business growth.
-          </p>
+          className="mb-20">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div className="max-w-2xl">
+              <h2 className="text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground mb-4">
+                Mindshare
+              </h2>
+              <h3 className="text-3xl md:text-5xl font-serif font-medium leading-tight text-foreground">
+                Perspectives on the economic landscape.
+              </h3>
+            </div>
+            <p className="text-muted-foreground max-w-sm font-light leading-relaxed">
+              Expert insights on taxation, fiscal planning, and strategic growth
+              for modern enterprises.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {blogs.map((blog, i) => (
-            <BlogCard key={blog.title} blog={blog} index={i} isInView={isInView} />
+            <BlogCard
+              key={blog.title}
+              blog={blog}
+              index={i}
+              isInView={isInView}
+            />
           ))}
         </div>
 
@@ -66,11 +77,9 @@ export default function Blog() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-10 sm:mt-12"
-        >
-          <button className="btn-secondary inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3">
-            Read All Articles
-            <ArrowRight className="w-4 h-4" />
+          className="text-center mt-20">
+          <button className="px-8 py-4 bg-primary text-white rounded-full text-[10px] uppercase tracking-widest font-bold hover:bg-primary-light transition-all shadow-lg shadow-primary/10">
+            Access All Insights
           </button>
         </motion.div>
       </div>
@@ -92,38 +101,36 @@ function BlogCard({
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glass rounded-xl overflow-hidden hover-lift group cursor-pointer"
-    >
-      <div className={`h-36 sm:h-40 bg-gradient-to-br ${blog.image} relative overflow-hidden`}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent)]" />
+      className="group cursor-pointer">
+      <div className="relative aspect-[16/10] bg-muted rounded-[2rem] overflow-hidden mb-8">
+        <div
+          className={`absolute inset-0 bg-gradient-to-br ${blog.image} opacity-50 group-hover:scale-105 transition-transform duration-700`}
+        />
+        <div className="absolute top-6 left-6">
+          <span className="px-4 py-1.5 bg-card/80 backdrop-blur-md rounded-full text-[10px] uppercase tracking-widest font-bold text-primary border border-border/20">
+            {blog.tags[0]}
+          </span>
+        </div>
       </div>
 
-      <div className="p-4 sm:p-5">
-        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
-          {blog.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-2.5 sm:px-3 py-1 bg-primary/10 text-primary rounded-full text-xs"
-            >
-              {tag}
-            </span>
-          ))}
+      <div className="space-y-4">
+        <div className="flex items-center gap-4 text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground">
+          <span>{blog.date}</span>
+          <span className="w-1 h-1 rounded-full bg-border" />
+          <span>{blog.readTime}</span>
         </div>
 
-        <h4 className="text-sm sm:text-base font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+        <h4 className="text-2xl font-serif font-medium leading-tight group-hover:text-primary transition-colors duration-300">
           {blog.title}
         </h4>
 
-        <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4 line-clamp-2">
+        <p className="text-sm text-muted-foreground font-light leading-relaxed line-clamp-2">
           {blog.excerpt}
         </p>
 
-        <div className="flex items-center justify-between text-xs text-muted-foreground">
-          <div className="flex items-center gap-1">
-            <Clock className="w-3.5 h-3.5" />
-            {blog.readTime}
-          </div>
-          <span>{blog.date}</span>
+        <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold text-foreground group-hover:text-primary transition-colors pt-4">
+          Read Manuscript{" "}
+          <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
         </div>
       </div>
     </motion.article>

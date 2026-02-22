@@ -1,19 +1,19 @@
+import About from "@/components/About";
+import Blog from "@/components/Blog";
+import Certifications from "@/components/Certifications";
+import Contact from "@/components/Contact";
+import FloatingButtons from "@/components/FloatingButtons";
+import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
+import Services from "@/components/Services";
+import Testimonials from "@/components/Testimonials";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import WhyMe from "@/components/WhyMe";
+import Work from "@/components/Work";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import WhyMe from "@/components/WhyMe";
-import Work from "@/components/Work";
-import Testimonials from "@/components/Testimonials";
-import Certifications from "@/components/Certifications";
-import Blog from "@/components/Blog";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import FloatingButtons from "@/components/FloatingButtons";
-import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -28,7 +28,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Prachiti Bhansali | CA Final | Virtual CFO | Tax & Finance Strategist",
+  title:
+    "Prachiti Bhansali | CA Final | Virtual CFO | Tax & Finance Strategist",
   description:
     "Chartered Accountant specializing in GST Advisory, Startup CFO Services, Financial Modeling, and Tax Planning. Turning complex numbers into clear business decisions.",
   keywords: [
@@ -64,7 +65,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <ThemeProvider>
-      <main className={`${inter.variable} ${playfair.variable} min-h-screen bg-navy text-foreground`}>
+      <main
+        className={`${inter.variable} ${playfair.variable} min-h-screen bg-background text-foreground`}>
         <Navbar />
         <Hero />
         <About />

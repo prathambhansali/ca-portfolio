@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, Menu, X } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
@@ -29,24 +29,29 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+    <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "glass py-3" : "py-5"
-      )}
-    >
+        "fixed top-0 left-0 right-0 z-[100] transition-all duration-500",
+        isScrolled ?
+          "py-4 bg-background/80 backdrop-blur-xl border-b border-border/40 shadow-sm"
+        : "py-6 bg-transparent",
+      )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-gold flex items-center justify-center">
-              <span className="text-white font-bold text-lg">PB</span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center transition-transform group-hover:scale-105">
+              <span className="text-white font-serif font-bold text-lg">
+                PB
+              </span>
             </div>
-            <span className="text-lg font-semibold text-foreground hidden sm:block">
-              Prachiti Bhansali
-            </span>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold text-foreground leading-none">
+                Prachiti Bhansali
+              </span>
+              <span className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1">
+                Chartered Accountant
+              </span>
+            </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-4">
@@ -54,10 +59,9 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm text-muted-foreground hover:text-indigo-400 transition-colors relative group"
-              >
+                className="text-xs font-medium uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors relative group">
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </div>
@@ -66,18 +70,18 @@ export default function Navbar() {
             <ThemeToggle />
             <Link
               href="#contact"
-              className="btn-primary inline-flex items-center gap-2 px-5 py-2.5"
-            >
-              Book a Call
-              <ArrowRight className="w-4 h-4" />
+              className="px-6 py-2 bg-primary text-primary-foreground rounded-full text-xs uppercase tracking-widest font-bold hover:bg-primary-light transition-all shadow-lg hover:shadow-primary/20 flex items-center gap-2">
+              Contact
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            className="md:hidden p-2 text-foreground">
+            {isMobileMenuOpen ?
+              <X className="w-6 h-6" />
+            : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -88,30 +92,25 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-border/50"
-          >
-            <div className="px-4 py-6 space-y-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-foreground hover:text-indigo-400 transition-colors py-2"
-                >
-                  {link.name}
-                </Link>
-              ))}
+            className="md:hidden bg-background border-t border-border py-6 px-6 space-y-4 shadow-xl overflow-hidden">
+            {navLinks.map((link) => (
               <Link
-                href="#contact"
+                key={link.name}
+                href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 text-white text-sm font-medium rounded-lg w-full justify-center"
-              >
-                Book a Call
+                className="block text-sm font-medium uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors py-2">
+                {link.name}
               </Link>
-            </div>
+            ))}
+            <Link
+              href="#contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="bg-primary text-primary-foreground w-full py-4 rounded-xl text-xs uppercase tracking-widest font-bold flex justify-center items-center">
+              Contact
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 }

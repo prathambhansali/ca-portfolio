@@ -15,32 +15,39 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
-          <div>
-            <div className="flex items-center gap-2 mb-3 sm:mb-4">
-              <div className="w-9 sm:w-10 h-9 sm:h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <span className="text-white font-bold text-sm sm:text-lg">PB</span>
+    <footer className="bg-background border-t border-border/60 py-20">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid md:grid-cols-4 gap-16 mb-20">
+          <div className="col-span-1 md:col-span-2">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+                <span className="text-white font-serif font-bold text-lg">
+                  PB
+                </span>
               </div>
-              <span className="text-sm sm:text-lg font-semibold text-foreground">
+              <span className="text-lg font-bold tracking-tight text-foreground">
                 Prachiti Bhansali
               </span>
             </div>
-            <p className="text-muted-foreground text-xs sm:text-sm">
-              Turning complex numbers into clear business decisions.
+            <p className="text-muted-foreground font-light leading-relaxed max-w-sm mb-8">
+              Elevating financial ecosystems through strategic oversight and
+              precision-based compliance.
             </p>
+            <div className="flex gap-4">
+              {/* Minimal social links could go here if needed, or kept simple */}
+            </div>
           </div>
 
           <div>
-            <h4 className="font-medium mb-3 sm:mb-4 text-sm sm:text-base">Quick Links</h4>
-            <ul className="space-y-1.5 sm:space-y-2">
-              {quickLinks.map((link) => (
+            <h4 className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground mb-8">
+              Resources
+            </h4>
+            <ul className="space-y-4">
+              {quickLinks.slice(1, 4).map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
+                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -49,24 +56,38 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-medium mb-3 sm:mb-4 text-sm sm:text-base">Contact</h4>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
-              <li>prachitibhansali@gmail.com</li>
-              <li>+91 98765 43210</li>
-              <li>Mumbai, India</li>
+            <h4 className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground mb-8">
+              Access
+            </h4>
+            <ul className="space-y-4">
+              {quickLinks.slice(4).map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <div className="pt-6 sm:pt-8 border-t border-border">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground text-center sm:text-left">
-            <p>
-              &copy; {currentYear} Prachiti Bhansali. All rights reserved.
-            </p>
-            <span className="hidden sm:inline">|</span>
-            <p>
-              Built with intention. Powered by expertise.
-            </p>
+        <div className="pt-12 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground/60">
+            &copy; {currentYear} Prachiti Bhansali. Precision In Finance.
+          </p>
+          <div className="flex items-center gap-8">
+            <Link
+              href="#"
+              className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground/60 hover:text-primary transition-colors">
+              Privacy Protocol
+            </Link>
+            <Link
+              href="#"
+              className="text-[10px] uppercase tracking-widest font-bold text-muted-foreground/60 hover:text-primary transition-colors">
+              Service Terms
+            </Link>
           </div>
         </div>
       </div>
