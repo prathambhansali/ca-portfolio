@@ -1,0 +1,169 @@
+Build a modern, premium personal portfolio website for a CA (Chartered Accountant)
+professional / finance expert in India. This should meet 2026 web design standards.
+
+---
+
+## PERSONA
+Name: Prachiti Bhansali
+Title: CA Final | Virtual CFO | Tax & Finance Strategist
+Tagline: "Turning complex numbers into clear business decisions."
+Location: India
+Niche: GST Advisory | Startup CFO Services | Financial Modeling | Tax Planning
+
+---
+
+## TECH STACK
+- Framework: Next.js 14+ (App Router)
+- Styling: Tailwind CSS + Framer Motion for animations
+- UI Components: shadcn/ui
+- Icons: Lucide React
+- Fonts: Inter or Geist (body) + Cal Sans or Playfair Display (headings)
+- Theme: Dark mode first, with light mode toggle
+- Deployment ready: Vercel
+
+---
+
+## DESIGN AESTHETIC
+- 2026 modern: glassmorphism cards, subtle grain texture overlay,
+  smooth scroll animations
+- Color palette: Deep navy (#0A0F1E) background, electric indigo/violet
+  (#6366F1) as primary accent, gold (#F59E0B) as secondary highlight
+- Micro-interactions on every hover and scroll
+- Bento grid layout for services/skills section
+- Cursor glow effect that follows mouse
+- Noise/grain texture on hero section for premium feel
+- NO generic Bootstrap or template look — must feel custom and editorial
+
+---
+
+## SECTIONS TO BUILD
+
+### 1. NAVBAR
+- Sticky, blur-glass background on scroll
+- Logo (initials monogram, styled)
+- Nav links: Home, About, Services, Work, Blog, Contact
+- CTA button: "Book a Call" (accent colored)
+- Mobile hamburger menu with smooth slide-in
+
+### 2. HERO SECTION
+- Full viewport height
+- Animated text reveal on load (word by word or character by character)
+- Headline: "I help startups & businesses make smarter financial decisions."
+- Subheadline: Brief intro — CA Final | Virtual CFO | Finance Strategist
+- Two CTAs: "View My Work" (primary) + "Download Resume" (ghost button)
+- Floating badge: "Open to Freelance Projects ✦"
+- Subtle animated background: floating particles or abstract mesh gradient
+- Scroll indicator arrow with bounce animation
+
+### 3. ABOUT SECTION
+- Split layout: left = image placeholder with decorative frame,
+  right = text
+- 2-3 paragraph bio
+- Highlighted stat cards (animated count-up on scroll):
+  * "50+ Clients Served"
+  * "₹10Cr+ in Tax Savings"
+  * "3+ Years Experience"
+  * "15+ Industries"
+- Skills/tools list as animated tags: GST, ITR, Tally, QuickBooks,
+  Excel, Power BI, Zoho Books, SAP
+
+### 4. SERVICES SECTION
+- Bento grid layout (asymmetric cards, different sizes)
+- Services:
+  * Virtual CFO Services
+  * GST Advisory & Filing
+  * Income Tax Planning
+  * Financial Modeling
+  * Startup Advisory
+  * Audit & Assurance
+  * MIS & Reporting
+  * Due Diligence
+- Each card: icon + title + short description + hover reveal with
+  "Learn More" arrow
+- Gradient borders on cards
+
+### 5. WHY ME / USP SECTION
+- Horizontal scroll or alternating layout
+- 4 key differentiators with icons:
+  * "Practical, not just theoretical"
+  * "Plain language, no jargon"
+  * "Startup-friendly pricing"
+  * "Always available, proactive approach"
+
+### 6. WORK / CASE STUDIES SECTION
+- 3 placeholder case study cards
+- Tags: Industry + Service type
+- Hover: card lifts with shadow
+- Each shows: Problem → Solution → Result format
+- "View All Work" CTA
+
+### 7. TESTIMONIALS SECTION
+- Marquee/auto-scroll testimonial strip (infinite loop)
+- 5-6 placeholder testimonials with name, company, and star rating
+- Avatar placeholder circles
+
+### 8. CERTIFICATIONS & TOOLS SECTION
+- Logo wall / icon grid of tools and certifications
+- Animated fade-in on scroll
+- Include: ICAI, GST, Tally, Excel, Power BI, QuickBooks, Zoho, SAP
+
+### 9. BLOG PREVIEW SECTION
+- 3 blog post cards
+- Tags, read time, date
+- Hover: image zoom + card lift
+- "Read All Articles" CTA
+
+### 10. CONTACT SECTION
+- Split layout: left = contact info + social links, right = contact form
+- Form fields: Name, Email, Service Needed (dropdown), Message
+- Animated submit button
+- Social links: LinkedIn, Instagram, Twitter/X, Email, WhatsApp CTA
+- Availability badge: "Currently accepting new clients"
+
+### 11. FOOTER
+- Minimal, dark
+- Logo + tagline
+- Quick links
+- "Built with intention. Powered by expertise."
+- Copyright
+
+---
+
+## ANIMATIONS & INTERACTIONS
+- Page load: fade-in + slide-up for hero elements (staggered)
+- Scroll-triggered: elements animate in as user scrolls down
+- Hover states: every card, button, and link has a clear hover effect
+- Number counters animate when section enters viewport
+- Smooth page transitions
+- Parallax on hero background
+- Loading screen: brief branded loader with initials
+
+---
+
+## ADDITIONAL REQUIREMENTS
+- Fully responsive: mobile, tablet, desktop
+- SEO ready: proper meta tags, OG image placeholder, sitemap structure
+- Performance: lazy load images, optimized fonts
+- Accessibility: proper aria labels, keyboard navigable
+- Contact form: functional with basic validation
+- All placeholder content should be realistic and finance-themed
+- Code should be clean, well-commented, and component-based
+- Each section in its own component file
+- Use TypeScript
+- Add a floating WhatsApp button (bottom right, green)
+- Add a "Back to Top" button that appears on scroll
+
+---
+
+## PLACEHOLDERS TO REPLACE LATER
+- [YOUR NAME] — Prachiti Bhansali
+- [YOUR PHOTO] — Profile image
+- [YOUR EMAIL] — prachitibhansali@gmail.com
+- [WHATSAPP NUMBER] — WhatsApp link
+- [LINKEDIN URL] — LinkedIn profile
+- [CALENDLY LINK] — Booking link for "Book a Call" button
+
+---
+
+Build the complete project with all components, pages, and a README
+with setup instructions. Make it production-ready.
