@@ -1,5 +1,6 @@
 'use client';
 
+import { config } from '@/config';
 import { motion, useInView } from 'framer-motion';
 import {
   BarChart3,
@@ -13,53 +14,21 @@ import {
 } from 'lucide-react';
 import { useRef } from 'react';
 
-const services = [
-  {
-    icon: LineChart,
-    title: 'Virtual CFO Services',
-    description:
-      'Full-spectrum financial leadership including strategy, planning, and stakeholder management.',
-    colSpan: 'lg:col-span-1',
-  },
-  {
-    icon: FileText,
-    title: 'GST Advisory & Filing',
-    description:
-      'Expert guidance on GST compliance, registrations, and optimized filing strategies.',
-  },
-  {
-    icon: Calculator,
-    title: 'Income Tax Planning',
-    description: 'Strategic tax planning to minimize liabilities while ensuring full compliance.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Financial Modeling',
-    description: 'Custom financial models for fundraising, budgeting, and business valuation.',
-  },
-  {
-    icon: Rocket,
-    title: 'Startup Advisory',
-    description: 'End-to-end financial setup for startups from incorporation to Series funding.',
-    colSpan: 'lg:col-span-1',
-  },
-  {
-    icon: Shield,
-    title: 'Audit & Assurance',
-    description: 'Statutory and internal audits ensuring transparency and regulatory compliance.',
-  },
-  {
-    icon: BarChart3,
-    title: 'MIS & Reporting',
-    description: 'Real-time management reports and KPIs tailored to your business needs.',
-  },
-  {
-    icon: Search,
-    title: 'Due Diligence',
-    description:
-      'Comprehensive financial due diligence for mergers, acquisitions, and investments.',
-  },
-];
+const iconMap: Record<string, React.ElementType> = {
+  'Virtual CFO Services': LineChart,
+  'GST Advisory & Filing': FileText,
+  'Income Tax Planning': Calculator,
+  'Financial Modeling': TrendingUp,
+  'Startup Advisory': Rocket,
+  'Audit & Assurance': Shield,
+  'MIS & Reporting': BarChart3,
+  'Due Diligence': Search,
+};
+
+const services = config.services.items.map(item => ({
+  ...item,
+  icon: iconMap[item.title] || LineChart,
+}));
 
 export default function Services() {
   const ref = useRef(null);
@@ -89,15 +58,14 @@ export default function Services() {
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <h2 className="text-muted-foreground mb-4 text-[10px] font-bold tracking-[0.2em] uppercase">
-                Specializations
+                {config.services.heading}
               </h2>
               <h3 className="font-serif text-3xl leading-tight font-medium md:text-5xl">
-                Comprehensive financial solutions for modern ventures.
+                {config.services.subheading}
               </h3>
             </div>
             <p className="text-muted-foreground max-w-sm leading-relaxed font-light">
-              Tailored services designed to navigate the complexities of modern business finance and
-              regulatory landscapes.
+              {config.services.description}
             </p>
           </div>
         </motion.div>
@@ -118,8 +86,6 @@ export default function Services() {
 
 function ServiceCard({
   service,
-  index,
-  isInView,
 }: {
   service: (typeof services)[0];
   index: number;

@@ -4,10 +4,9 @@ import { motion } from 'framer-motion';
 import { Download, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { config } from '@/config';
 
-const headingText = 'I help startups & businesses make smarter financial decisions.';
-
-const words = headingText.split(' ');
+const words = config.hero.heading.split(' ');
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -65,7 +64,7 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="mb-6">
             <span className="bg-card/60 text-muted-foreground border-border inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[10px] font-bold tracking-[0.2em] uppercase backdrop-blur-sm">
               <Sparkles className="text-secondary h-3 w-3" />
-              Strategic Financial Leadership
+              {config.hero.badge}
             </span>
           </motion.div>
 
@@ -82,8 +81,7 @@ export default function Hero() {
           <motion.p
             variants={itemVariants}
             className="text-muted-foreground mb-8 max-w-2xl text-lg leading-relaxed font-light md:text-xl">
-            CA Finalist & Virtual CFO helping startups and growing businesses turn complex financial
-            data into high-impact growth strategies.
+            {config.hero.subtitle}
           </motion.p>
 
           <motion.div
@@ -92,10 +90,10 @@ export default function Hero() {
             <Link
               href="#work"
               className="bg-primary text-primary-foreground hover:bg-primary-light hover:shadow-primary/20 rounded-full px-8 py-4 text-xs font-bold tracking-widest uppercase shadow-lg transition-all hover:scale-105 active:scale-95">
-              Explore Solutions
+              {config.hero.ctaPrimary}
             </Link>
             <button className="text-foreground hover:text-primary group flex items-center gap-2 text-xs font-bold tracking-widest uppercase transition-colors">
-              Download Portfolio
+              {config.hero.ctaSecondary}
               <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </button>
           </motion.div>

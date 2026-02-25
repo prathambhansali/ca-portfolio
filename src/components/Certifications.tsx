@@ -3,17 +3,23 @@
 import { motion, useInView } from 'framer-motion';
 import { Award, BarChart3, BookOpen, Calculator, FileSpreadsheet } from 'lucide-react';
 import { useRef } from 'react';
+import { config } from '@/config';
 
-const tools = [
-  { name: 'ICAI', icon: Award, category: 'Certification' },
-  { name: 'GST', icon: FileSpreadsheet, category: 'Tax' },
-  { name: 'Tally', icon: Calculator, category: 'Accounting' },
-  { name: 'Excel', icon: BarChart3, category: 'Analysis' },
-  { name: 'Power BI', icon: BarChart3, category: 'Visualization' },
-  { name: 'QuickBooks', icon: BookOpen, category: 'Accounting' },
-  { name: 'Zoho Books', icon: BookOpen, category: 'Accounting' },
-  { name: 'SAP', icon: Calculator, category: 'ERP' },
-];
+const iconMap: Record<string, React.ElementType> = {
+  ICAI: Award,
+  GST: FileSpreadsheet,
+  Tally: Calculator,
+  Excel: BarChart3,
+  'Power BI': BarChart3,
+  QuickBooks: BookOpen,
+  'Zoho Books': BookOpen,
+  SAP: Calculator,
+};
+
+const tools = config.certifications.items.map(item => ({
+  ...item,
+  icon: iconMap[item.name] || Award,
+}));
 
 export default function Certifications() {
   const ref = useRef(null);
@@ -28,14 +34,13 @@ export default function Certifications() {
           transition={{ duration: 0.6 }}
           className="mb-20 text-center">
           <h2 className="text-muted-foreground mb-4 text-[10px] font-bold tracking-[0.2em] uppercase">
-            Competencies
+            {config.certifications.heading}
           </h2>
           <h3 className="mb-6 font-serif text-3xl font-medium md:text-5xl">
-            Certifications & Systems
+            {config.certifications.subheading}
           </h3>
           <p className="text-muted-foreground mx-auto max-w-2xl leading-relaxed font-light">
-            Industry-standard credentials and deep technical proficiency in modern financial
-            ecosystems.
+            {config.certifications.description}
           </p>
         </motion.div>
 

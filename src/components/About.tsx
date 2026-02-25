@@ -3,15 +3,21 @@
 import { motion, useInView } from 'framer-motion';
 import { Briefcase, Building2, TrendingUp, Users } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { config } from '@/config';
 
-const stats = [
-  { icon: Users, value: 50, suffix: '+', label: 'Clients Served' },
-  { icon: TrendingUp, value: 10, suffix: 'Cr+', label: 'Tax Savings' },
-  { icon: Briefcase, value: 3, suffix: '+', label: 'Years Experience' },
-  { icon: Building2, value: 15, suffix: '+', label: 'Industries' },
-];
+const iconMap: Record<string, React.ElementType> = {
+  'Clients Served': Users,
+  'Tax Savings': TrendingUp,
+  'Years Experience': Briefcase,
+  Industries: Building2,
+};
 
-const skills = ['GST', 'ITR', 'Tally', 'QuickBooks', 'Excel', 'Power BI', 'Zoho Books', 'SAP'];
+const stats = config.about.stats.map((stat, i) => ({
+  ...stat,
+  icon: Object.values(iconMap)[i],
+}));
+
+const skills = config.about.skills;
 
 function Counter({ value, suffix, inView }: { value: number; suffix: string; inView: boolean }) {
   const [count, setCount] = useState(0);
@@ -58,7 +64,9 @@ export default function About() {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               <div className="bg-background flex h-full w-full items-center justify-center">
                 <div className="border-primary/10 flex h-48 w-48 items-center justify-center rounded-full border">
-                  <span className="text-primary/20 font-serif text-6xl">PB</span>
+                  <span className="text-primary/20 font-serif text-6xl">
+                    {config.personal.initials}
+                  </span>
                 </div>
               </div>
               <div className="absolute bottom-10 left-10">
@@ -66,7 +74,7 @@ export default function About() {
                   <p className="text-muted-foreground mb-1 text-[10px] font-bold tracking-widest uppercase">
                     Experience
                   </p>
-                  <p className="text-xl font-medium">3+ Years Professional</p>
+                  <p className="text-xl font-medium">{config.about.experience}</p>
                 </div>
               </div>
             </div>
@@ -83,23 +91,15 @@ export default function About() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}>
             <h2 className="text-muted-foreground mb-4 text-[10px] font-bold tracking-[0.2em] uppercase">
-              The Strategist
+              {config.about.heading}
             </h2>
             <h3 className="mb-8 font-serif text-3xl leading-tight font-medium md:text-5xl">
-              Precision in numbers, clarity in strategy.
+              {config.about.tagline}
             </h3>
             <div className="text-muted-foreground mb-12 space-y-6 leading-relaxed font-light">
-              <p>
-                I am Prachiti Bhansali, a qualified Chartered Accountant dedicated to empowering
-                entrepreneurs with actionable financial insights. With a specialization in GST
-                advisory and virtual CFO services, I bridge the gap between technical compliance and
-                business growth.
-              </p>
-              <p>
-                My approach is rooted in the belief that financial data should be a roadmap, not an
-                obstacle. I translate complex numbers into clear strategies that drive profitability
-                and ensure long-term stability for startups and established ventures alike.
-              </p>
+              {config.about.bio.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
             </div>
 
             <div className="mb-12 grid grid-cols-2 gap-8">

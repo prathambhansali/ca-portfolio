@@ -1,46 +1,10 @@
 'use client';
 
+import { config } from '@/config';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 
-const testimonials = [
-  {
-    name: 'Rajesh Kumar',
-    company: 'TechVentures Pvt Ltd',
-    text: 'Prachiti transformed our financial混乱into clarity. Her virtual CFO services were instrumental in our Series A success.',
-    rating: 5,
-  },
-  {
-    name: 'Priya Sharma',
-    company: 'FashionFirst E-Commerce',
-    text: 'The tax planning expertise saved us significant money. Professional, responsive, and extremely knowledgeable.',
-    rating: 5,
-  },
-  {
-    name: 'Amit Patel',
-    company: 'ManufacturePro',
-    text: 'Finally, an accountant who speaks business language. She helped us understand our numbers and make better decisions.',
-    rating: 5,
-  },
-  {
-    name: 'Sneha Reddy',
-    company: 'CloudSync SaaS',
-    text: 'Startup advisory at its best. She helped us set up financial systems that scaled with our growth.',
-    rating: 5,
-  },
-  {
-    name: 'Vikram Singh',
-    company: 'GreenEnergy Solutions',
-    text: 'Exceptional GST advisory. Made complex compliance simple and saved us from potential penalties.',
-    rating: 5,
-  },
-  {
-    name: 'Meera Joshi',
-    company: 'RetailHub',
-    text: 'The financial modeling was detailed and investor-ready. We secured funding within 3 months of engagement.',
-    rating: 5,
-  },
-];
+const testimonials = config.testimonials.items;
 
 export default function Testimonials() {
   return (
@@ -53,14 +17,13 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center">
           <h2 className="text-muted-foreground mb-4 text-[10px] font-bold tracking-[0.2em] uppercase">
-            Accolades
+            {config.testimonials.heading}
           </h2>
           <h3 className="mb-6 font-serif text-3xl font-medium md:text-5xl">
-            Voices of Partnership
+            {config.testimonials.subheading}
           </h3>
           <p className="text-muted-foreground mx-auto max-w-2xl leading-relaxed font-light">
-            Trusted by founders and entrepreneurs to navigate their most critical financial
-            milestones.
+            {config.testimonials.description}
           </p>
         </motion.div>
       </div>

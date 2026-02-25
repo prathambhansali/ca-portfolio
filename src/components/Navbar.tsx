@@ -6,15 +6,9 @@ import { ArrowRight, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import ThemeToggle from './ThemeToggle';
+import { config } from '@/config';
 
-const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Work', href: '#work' },
-  { name: 'Blog', href: '#blog' },
-  { name: 'Contact', href: '#contact' },
-];
+const navLinks = config.nav.links;
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,14 +34,16 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <Link href="/" className="group flex items-center gap-3">
             <div className="bg-primary flex h-10 w-10 items-center justify-center rounded-xl transition-transform group-hover:scale-105">
-              <span className="font-serif text-lg font-bold text-white">PB</span>
+              <span className="font-serif text-lg font-bold text-white">
+                {config.personal.initials}
+              </span>
             </div>
             <div className="flex flex-col">
               <span className="text-foreground text-sm leading-none font-bold">
-                Prachiti Bhansali
+                {config.personal.name}
               </span>
               <span className="text-muted-foreground mt-1 text-[10px] tracking-wider uppercase">
-                Chartered Accountant
+                {config.personal.title}
               </span>
             </div>
           </Link>
@@ -69,7 +65,7 @@ export default function Navbar() {
             <Link
               href="#contact"
               className="bg-primary text-primary-foreground hover:bg-primary-light hover:shadow-primary/20 flex items-center gap-2 rounded-full px-6 py-2 text-xs font-bold tracking-widest uppercase shadow-lg transition-all">
-              Contact
+              {config.nav.cta}
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -102,7 +98,7 @@ export default function Navbar() {
               href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}
               className="bg-primary text-primary-foreground flex w-full items-center justify-center rounded-xl py-4 text-xs font-bold tracking-widest uppercase">
-              Contact
+              {config.nav.cta}
             </Link>
           </motion.div>
         )}
