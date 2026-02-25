@@ -11,7 +11,7 @@
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
-    "build:cloudflare": "npx @opennextjs/cloudflare build",
+    "build:cloudflare": "npx @opennextjs/cloudflare build && cp -rL .open-next .open-next-resolved && rm -rf .open-next && mv .open-next-resolved .open-next",
     "lint": "eslint",
     "prettier": "prettier --write ."
   },
