@@ -1,4 +1,4 @@
-name = "ca-portfolio"
+name = "prachitibhansali"
 compatibility_date = "2025-01-01"
-pages_build_output_dir = ".open-next"
-main = ".open-next/worker.js"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".open-next/assets"
