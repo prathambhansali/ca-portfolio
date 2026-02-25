@@ -11,7 +11,7 @@
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
-    "build:cloudflare": "npx @opennextjs/cloudflare build && find .open-next -xtype l -delete",
+    "build:cloudflare": "npx @opennextjs/cloudflare build && find .open-next -xtype l -delete && cp .open-next/worker.js .open-next/_worker.js",
     "lint": "eslint",
     "prettier": "prettier --write ."
   },
