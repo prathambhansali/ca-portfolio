@@ -1,8 +1,8 @@
-import { config } from '@/config';
-import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Metadata } from 'next';
+import Navbar from '@/components/Navbar';
+import { config } from '@/config';
 import { ArrowRight, Briefcase } from 'lucide-react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -14,9 +14,8 @@ export default function WorkPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-32 pb-24">
+      <main className="pt-24 pb-20">
         <div className="mx-auto max-w-7xl px-6">
-          {/* Header */}
           <div className="mb-20 text-center">
             <h2 className="text-muted-foreground mb-4 text-[10px] font-bold tracking-[0.2em] uppercase">
               {config.work.heading}
@@ -29,14 +28,12 @@ export default function WorkPage() {
             </p>
           </div>
 
-          {/* Case Studies Grid */}
           <div className="grid gap-8">
             {config.work.items.map((caseStudy, index) => (
               <Link
                 key={caseStudy.slug}
                 href={`/work/${caseStudy.slug}`}
-                className="group bg-card border-border/60 shadow-primary/5 hover:border-primary/20 hover:shadow-primary/10 flex flex-col rounded-3xl border p-8 shadow-sm transition-all duration-500 md:flex-row md:items-center">
-                {/* Left - Number & Title */}
+                className="group bg-card border-border/60 shadow-primary/5 hover:border-primary/20 hover:shadow-primary/10 flex flex-col rounded-3xl border p-6 shadow-sm transition-all duration-500 md:flex-row md:items-center">
                 <div className="md:w-1/2 md:pr-12">
                   <div className="text-muted-foreground/50 mb-6 font-serif text-6xl font-bold">
                     0{index + 1}
@@ -57,7 +54,6 @@ export default function WorkPage() {
                   </p>
                 </div>
 
-                {/* Right - Result Preview */}
                 <div className="md:border-border/60 mt-8 md:mt-0 md:w-1/2 md:border-l md:pl-12">
                   <div className="mb-4 flex items-center gap-2">
                     <Briefcase className="text-primary h-4 w-4" />

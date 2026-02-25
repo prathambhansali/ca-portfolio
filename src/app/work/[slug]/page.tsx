@@ -1,8 +1,8 @@
-import { config } from '@/config';
-import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Metadata } from 'next';
-import { ArrowLeft, Briefcase, Target, Lightbulb, Trophy } from 'lucide-react';
+import Navbar from '@/components/Navbar';
+import { config } from '@/config';
+import { ArrowLeft, Briefcase, Lightbulb, Target, Trophy } from 'lucide-react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -37,9 +37,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
   return (
     <>
       <Navbar />
-      <main className="pt-32 pb-24">
+      <main className="pt-24 pb-20">
         <div className="mx-auto max-w-4xl px-6">
-          {/* Back Link */}
           <Link
             href="/work"
             className="text-muted-foreground hover:text-primary mb-12 inline-flex items-center gap-2 text-sm transition-colors">
@@ -47,7 +46,6 @@ export default async function CaseStudyPage({ params }: PageProps) {
             Back to all case studies
           </Link>
 
-          {/* Header */}
           <div className="mb-12">
             <div className="mb-6 flex flex-wrap items-center gap-3">
               <span className="bg-primary/10 text-primary rounded-full px-4 py-1.5 text-xs font-bold tracking-widest uppercase">
@@ -63,10 +61,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <p className="text-muted-foreground text-lg leading-relaxed">{caseStudy.problem}</p>
           </div>
 
-          {/* Case Study Content */}
           <div className="space-y-12">
-            {/* Problem Section */}
-            <div className="bg-muted/30 rounded-3xl p-8">
+            <div className="bg-muted/30 rounded-3xl p-6">
               <div className="mb-6 flex items-center gap-3">
                 <div className="bg-destructive/10 flex h-10 w-10 items-center justify-center rounded-xl">
                   <Target className="text-destructive h-5 w-5" />
@@ -78,8 +74,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               <p className="text-foreground leading-relaxed">{caseStudy.problem}</p>
             </div>
 
-            {/* Solution Section */}
-            <div className="bg-muted/30 rounded-3xl p-8">
+            <div className="bg-muted/30 rounded-3xl p-6">
               <div className="mb-6 flex items-center gap-3">
                 <div className="bg-primary/10 flex h-10 w-10 items-center justify-center rounded-xl">
                   <Lightbulb className="text-primary h-5 w-5" />
@@ -91,8 +86,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               <p className="text-foreground leading-relaxed">{caseStudy.solution}</p>
             </div>
 
-            {/* Result Section */}
-            <div className="bg-primary/10 rounded-3xl p-8">
+            <div className="bg-primary/10 rounded-3xl p-6">
               <div className="mb-6 flex items-center gap-3">
                 <div className="bg-primary flex h-10 w-10 items-center justify-center rounded-xl">
                   <Trophy className="h-5 w-5 text-white" />
@@ -107,7 +101,6 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* Tags */}
           <div className="mt-12 flex flex-wrap gap-2">
             {caseStudy.tags.map(tag => (
               <span
@@ -118,14 +111,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
             ))}
           </div>
 
-          {/* CTA */}
           <div className="border-border/60 mt-20 border-t pt-12">
-            <div className="bg-muted/30 rounded-3xl p-8 md:p-12">
+            <div className="bg-muted/30 rounded-3xl p-6 md:p-8">
               <h3 className="mb-4 font-serif text-2xl font-medium">
                 Interested in similar results?
               </h3>
               <p className="text-muted-foreground mb-6">
-                Let's discuss how I can help your {caseStudy.industry.toLowerCase()} business
+                Let&apos;s discuss how I can help your {caseStudy.industry.toLowerCase()} business
                 achieve its financial goals.
               </p>
               <Link

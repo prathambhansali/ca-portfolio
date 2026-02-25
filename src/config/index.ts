@@ -4,10 +4,16 @@ export const config = {
     initials: 'PB',
     title: 'Chartered Accountant Finalist',
     tagline: 'Precision in numbers, clarity in strategy.',
-    location: 'Mumbai, India',
+    location: 'Amravati, India',
     email: 'prachitibhansali@gmail.com',
     phone: '+91 94036 13055',
     whatsapp: '919403613055',
+    whatsappUrl: 'https://wa.me/919403613055',
+    linkedinUrl: 'https://linkedin.com/in/prachitibhansali',
+    instagramUrl: 'https://instagram.com/prachitibhansali',
+    twitterUrl: 'https://twitter.com/prachitibhansali',
+    calendlyUrl: 'https://calendly.com/prachitibhansali',
+    resumeUrl: '/resume.pdf',
     availability: 'Currently onboarding select clients',
   },
   nav: {
@@ -177,7 +183,7 @@ export const config = {
       {
         name: 'Rajesh Kumar',
         company: 'TechVentures Pvt Ltd',
-        text: 'Prachiti transformed our financial混乱into clarity. Her virtual CFO services were instrumental in our Series A success.',
+        text: 'Prachiti transformed our financial complexity into clarity. Her virtual CFO services were instrumental in our Series A success.',
         rating: 5,
       },
       {
@@ -433,9 +439,9 @@ Track these metrics consistently and present them professionally to investors. D
       sent: 'Inquiry Received',
     },
     social: [
-      { platform: 'LinkedIn', label: 'LinkedIn' },
-      { platform: 'Instagram', label: 'Instagram' },
-      { platform: 'Twitter', label: 'Twitter' },
+      { platform: 'LinkedIn', label: 'LinkedIn', url: 'https://linkedin.com/in/prachitibhansali' },
+      { platform: 'Instagram', label: 'Instagram', url: 'https://instagram.com/prachitibhansali' },
+      { platform: 'Twitter', label: 'Twitter', url: 'https://twitter.com/prachitibhansali' },
     ],
   },
   footer: {
